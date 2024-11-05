@@ -1,7 +1,7 @@
 const app = require('./app');
-const connection = require('../database/mongoose')
-const port = process.env.API_PORT || 3000;
+const connection = require('../database/mongoose');
 
+const port = process.env.API_PORT || 3000;
 
 connection();
 
