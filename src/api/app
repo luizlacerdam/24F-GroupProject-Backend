@@ -6,7 +6,7 @@
  * 
  * @requires express
  */
-const express = require('express');
+import express from 'express';
 
 const app = express();
 app.use(express.json());
@@ -14,4 +14,4 @@ app.get('/', (req, res) => {
     res.send('Hello world');
 });
 
-module.exports = app;
+export default app;
