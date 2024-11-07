@@ -1,13 +1,13 @@
-const express = require('express');
+import express from 'express';
+import * as userController from '../controller/user.js';
 
 const router = express.Router();
 
-const ticketController = require('../controller/user.js');
+// Define routes using the router
+router.get('/', userController.getAll);
+router.post('/', userController.create);
+router.get('/:id', userController.getByID);
+router.put('/:id', userController.update);
+router.delete('/:id', userController.delete);
 
-router.get('/', ticketController.getAll);
-router.post('/', ticketController.create);
-router.get('/:id', ticketController.getByID);
-router.put('/:id', ticketController.update);
-router.delete('/:id', ticketController.delete);
-
-module.exports = router;
+export default router; // Export the router as default
