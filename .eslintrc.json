@@ -1,3 +1,25 @@
 {
-    "extends": "trybe-backend"
+    "extends": "trybe-backend",
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2020,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "always",
+                "mjs": "never",
+                "jsx": "never"
+            }
+        ]
+    },
+    "env": {
+        "node": true,
+        "es6": true
+    }
 }

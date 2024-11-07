@@ -1,7 +1,7 @@
-const TicketModel = require('../database/models/ticket');
+import TicketModel from '../database/models/ticket.js'; // Use import instead of require
 
 // Responsible for creating a new ticket
-module.exports.create = async (req, res, next) => {
+export const create = async (req, res, next) => {
     try {
         const ticket = new TicketModel(req.body);
         await TicketModel.create(ticket);
@@ -13,7 +13,7 @@ module.exports.create = async (req, res, next) => {
 };
 
 // Responsible for fetching all tickets
-module.exports.getAll = async (req, res, next) => {
+export const getAll = async (req, res, next) => {
     try {
         const list = await TicketModel.find();
         return res.status(200).json(list);
@@ -24,7 +24,7 @@ module.exports.getAll = async (req, res, next) => {
 };
 
 // Responsible for fetching a ticket by ID
-module.exports.getByID = async (req, res, next) => {
+export const getById = async (req, res, next) => { // Changed getByID to getById to match the naming convention
     try {
         const { id } = req.params;
         const ticket = await TicketModel.findById(id);
@@ -36,7 +36,7 @@ module.exports.getByID = async (req, res, next) => {
 };
 
 // Responsible for updating a ticket by ID
-module.exports.update = async (req, res, next) => {
+export const update = async (req, res, next) => {
     try {
         const { id } = req.params;
 
@@ -60,7 +60,7 @@ module.exports.update = async (req, res, next) => {
 };
 
 // Responsible for deleting a ticket by ID
-module.exports.delete = async (req, res, next) => {
+export const remove = async (req, res, next) => { // Changed delete to remove to avoid using a reserved keyword
     try {
         const { id } = req.params;
 
