@@ -1,6 +1,5 @@
-
+/* eslint-disable no-underscore-dangle */
 const UserModel = require('../database/models/user');
-
 
 // Responsible for fetching all users and excluding password field
 module.exports.getAll = async (req, res, next) => {
@@ -30,6 +29,7 @@ module.exports.create = async (req, res, next) => {
     try {
         const user = new UserModel(req.body);
 
+        // eslint-disable-next-line no-unused-vars
         const result = await UserModel.create(user);
         return res.status(201).json({
             success: true,

@@ -1,4 +1,3 @@
-
 const TicketModel = require('../database/models/ticket');
 
 // Responsible for creating a new ticket
@@ -42,6 +41,7 @@ module.exports.update = async (req, res, next) => {
         const { id } = req.params;
 
         const ticket = new TicketModel(req.body);
+        // eslint-disable-next-line no-underscore-dangle
         ticket._id = id;
 
         const result = await TicketModel.updateOne({ _id: id }, ticket);
