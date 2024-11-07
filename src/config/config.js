@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 dotenv.config({ path: './secrets.env' });
 
@@ -15,6 +15,6 @@ const connectionString = 'mongodb+srv://gustavo213098:'
     + `${password}@c1.3o2bb.mongodb.net/groupProject?retryWrites=true&` 
     + 'w=majority&appName=c1';
 
-export default {
+module.exports = {
     atlasDb: connectionString,
 };

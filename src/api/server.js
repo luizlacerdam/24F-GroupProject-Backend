@@ -1,4 +1,3 @@
-import app from './app.js';
 /**
  * Establishes a connection to the MongoDB database using Mongoose.
  * 
@@ -6,7 +5,9 @@ import app from './app.js';
  * @type {Object}
  * @requires ../database/mongoose
  */
-import connection from '../database/mongoose.js';
+const connection = require('../database/mongoose');
+
+const app = require('./app');
 
 const port = process.env.API_PORT || 3000;
 
