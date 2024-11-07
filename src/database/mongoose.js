@@ -1,7 +1,6 @@
-import mongoose from 'mongoose';
-import config from '../config/config.js';
+const mongoose = require('mongoose');
+const config = require('../config/config');
 
-// eslint-disable-next-line import/prefer-default-export
 /**
  * Connects to the MongoDB database using Mongoose.
  * 
@@ -12,8 +11,7 @@ import config from '../config/config.js';
  * @name connectToDatabase
  */
 
-// eslint-disable-next-line import/prefer-default-export
-export const connectToDatabase = function connectToDatabase() {
+module.exports = () => {
     mongoose.connect(config.atlasDb);
 
     const mongodb = mongoose.connection;
@@ -23,5 +21,3 @@ export const connectToDatabase = function connectToDatabase() {
         console.log('Connected to MongoDB.');
     });
 };
-
-export default connectToDatabase;
