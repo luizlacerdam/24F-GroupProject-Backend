@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import config from '../config/config';
+import config from '../config/config.js';
 
 // eslint-disable-next-line import/prefer-default-export
 /**
@@ -23,3 +23,5 @@ export const connectToDatabase = function connectToDatabase() {
         console.log('Connected to MongoDB.');
     });
 };
+
+export default connectToDatabase;
