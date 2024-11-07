@@ -16,6 +16,13 @@ module.exports.getAll = async (req, res, next) => {
 module.exports.getById = async (req, res, next) => {
     try {
         const { id } = req.params;
+        /**
+         * Retrieves a user by their ID from the database, excluding the password field.
+         *
+         * @param {string} id - The ID of the user to retrieve.
+         * @returns {Promise<Object>} A promise that resolves to the user object without the password field.
+         * @throws {Error} If there is an error retrieving the user from the database.
+         */
         const user = await UserModel.findById(id).select('-password');
         return res.status(200).json(user);
     } catch (error) {

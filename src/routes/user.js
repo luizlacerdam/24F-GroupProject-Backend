@@ -1,7 +1,14 @@
 import express from 'express';
 import * as userController from '../controller/user.js';
 
-const router = express.Router();
+/**
+ * Router instance for handling user-related routes.
+ * 
+ * This router is used to define and manage all the endpoints related to user operations.
+ * 
+ * @type {import('express').Router}
+ */
+const router = express.Router(); // Use ES module import
 
 // Define routes using the router
 router.get('/', userController.getAll);

@@ -1,6 +1,10 @@
 import express from 'express';
 import * as userController from '../controller/ticket.js';
 
+/**
+ * Router instance for handling ticket-related routes.
+ * @type {import('express').Router}
+ */
 const router = express.Router(); // Use ES module import
 
 // Define routes using the router

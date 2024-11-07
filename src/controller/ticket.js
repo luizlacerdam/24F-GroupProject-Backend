@@ -36,6 +36,17 @@ export const getById = async (req, res, next) => { // Changed getByID to getById
 };
 
 // Responsible for updating a ticket by ID
+/**
+ * Updates a ticket with the given ID.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} req.params - The request parameters.
+ * @param {string} req.params.id - The ID of the ticket to update.
+ * @param {Object} req.body - The request body containing the ticket data.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next middleware function.
+ * @returns {Promise<void>} - A promise that resolves when the ticket is updated.
+ */
 export const update = async (req, res, next) => {
     try {
         const { id } = req.params;
