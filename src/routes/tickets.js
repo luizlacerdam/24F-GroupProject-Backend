@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const userController = require('../controller/user');
+const userController = require('../controller/ticket');
 
 router.get('/', userController.getAll);
 router.get('/:id', userController.getById);
