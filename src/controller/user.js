@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-const UserModel = require('../database/models/user');
+const UserModel = require('../database/models/user.js');
 
 // Responsible for fetching all users and excluding password field
 module.exports.getAll = async (req, res, next) => {
