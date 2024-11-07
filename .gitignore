@@ -1,5 +1,5 @@
 node_modules
-/src/config/secrets.env
+#secrets.env
 
 #macOS
 .DS_Store

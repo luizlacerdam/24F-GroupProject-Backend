@@ -1,4 +1,4 @@
-const app = require('./app');
+import app from './app.js';
 /**
  * Establishes a connection to the MongoDB database using Mongoose.
  * 
@@ -6,7 +6,7 @@ const app = require('./app');
  * @type {Object}
  * @requires ../database/mongoose
  */
-const connection = require('../database/mongoose');
+import connection from '../database/mongoose.js';
 
 const port = process.env.API_PORT || 3000;
 
