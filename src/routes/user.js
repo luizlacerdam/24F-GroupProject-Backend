@@ -2,12 +2,15 @@ const express = require('express');
 
 const router = express.Router();
 
-const ticketController = require('../controller/ticket');
+const userController = require('../controller/user');
+const authController = require('../controller/auth');
+const { validateToken } = require('../middlewares/validateToken');
 
-router.get('/:id', ticketController.getByID);
-router.put('/:id', ticketController.update);
-router.delete('/:id', ticketController.delete);
-router.get('/', ticketController.getAll);
-router.post('/', ticketController.create);
+router.post('/login', authController.login);
+router.get('/:id', validateToken, userController.getById);
+router.put('/:id', validateToken, userController.update);
+router.delete('/:id', validateToken, userController.delete);
+router.get('/', validateToken, userController.getAll);
+router.post('/', userController.create);
 
 module.exports = router;
