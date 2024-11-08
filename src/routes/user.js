@@ -2,12 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
-const ticketController = require('../controller/ticket');
+const userController = require('../controller/user');
 
-router.get('/:id', ticketController.getByID);
-router.put('/:id', ticketController.update);
-router.delete('/:id', ticketController.delete);
-router.get('/', ticketController.getAll);
-router.post('/', ticketController.create);
+router.get('/:id', userController.getById);
+router.put('/:id', userController.update);
+router.delete('/:id', userController.delete);
+router.get('/', userController.getAll);
+router.post('/', userController.create);
 
 module.exports = router;
