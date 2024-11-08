@@ -13,17 +13,18 @@ const login = async (req, res, next) => {
     }
     
     const user = await userModel.find({ email });
-    if (!user) {
+    if (user.length === 0) {
       return res.status(404).json({ message: 'User not found.' }); 
     }
 
-    if (!hashMd5Compare(password, user.password)) {
+    if (!hashMd5Compare(password, user[0].password)) {
       return res.status(422).json({ message: 'Password is incorrect.' });
     }
-    const { _id, username, role } = user;
-    const token = tokenGenerator({ data: { _id, username, role, email } });
+    const { id, username, role } = user[0];
+    
+    const token = tokenGenerator({ data: { id, username, role, email } });
 
-    return res.status(200).json({ token, user: { _id, username, role, email } });
+    return res.status(200).json({ token, user: { id, username, role, email } });
   } catch (err) {
     next(err);
   }

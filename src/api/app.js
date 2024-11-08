@@ -9,6 +9,7 @@
 const express = require('express');
 const userRouter = require('../routes/user');
 const ticketRouter = require('../routes/ticket');
+const { errorMiddleware } = require('../middlewares/errorMiddleware');
 
 const app = express();
 app.use(express.json());
@@ -19,5 +20,7 @@ app.use('/tickets', ticketRouter);
 app.get('/', (req, res) => {
     res.send('Hello world');
 });
+
+app.use(errorMiddleware);
 
 module.exports = app;
