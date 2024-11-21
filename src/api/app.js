@@ -7,12 +7,14 @@
  * @requires express
  */
 const express = require('express');
+const cors = require('cors');
 const userRouter = require('../routes/user');
 const ticketRouter = require('../routes/ticket');
 const { errorMiddleware } = require('../middlewares/errorMiddleware');
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use('/users', userRouter);
 app.use('/tickets', ticketRouter);

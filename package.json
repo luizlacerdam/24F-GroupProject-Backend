@@ -15,6 +15,7 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "24f-groupproject-backend": "file:",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "glob": "^11.0.0",
