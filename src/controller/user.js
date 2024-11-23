@@ -96,3 +96,17 @@ module.exports.delete = async (req, res, next) => {
         next(error);
     }
 };
+
+module.exports.getAllTicketsByUserId = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const user = await UserModel.findById(id).populate('tickets');
+        if (!user) {
+            return res.status(404).json({ message: USER_NOT_FOUND });
+        }
+        return res.json(user.tickets);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+};
