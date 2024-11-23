@@ -15,7 +15,7 @@ const { Schema } = mongoose;
  */
 const TicketSchema = new Schema(
 {
-    customerId: String,
+    customerId: { type: Schema.Types.ObjectId, ref: 'User' },
     status: String,
     description: String,
     priority: String,
