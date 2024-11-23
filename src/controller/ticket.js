@@ -79,10 +79,9 @@ module.exports.delete = async (req, res, next) => {
 
 module.exports.getTicketsByCustomerId = async (req, res, next) => {
     try {
-        const { id } = req.params;
-
+      const { id } = req.params;
       const tickets = await TicketModel.find({ customerId: id });
-      return tickets;
+      return res.status(200).json(tickets);
     } catch (error) {
         console.log(error);
         next(error);
