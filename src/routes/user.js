@@ -6,7 +6,7 @@ const userController = require('../controller/user');
 const authController = require('../controller/auth');
 const { validateToken } = require('../middlewares/validateToken');
 
-router.post('/validate', validateToken, authController.userValidation);
+router.get('/validate', validateToken, authController.userValidation);
 router.post('/login', authController.login);
 router.get('/:id', validateToken, userController.getById);
 router.put('/:id', validateToken, userController.update);
