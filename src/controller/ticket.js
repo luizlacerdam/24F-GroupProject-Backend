@@ -76,3 +76,15 @@ module.exports.delete = async (req, res, next) => {
         next(error);
     }
 };
+
+module.exports.getTicketsByCustomerId = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+      const tickets = await TicketModel.find({ customerId: id });
+      return tickets;
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+  };
