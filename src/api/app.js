@@ -10,6 +10,8 @@ const express = require('express');
 const cors = require('cors');
 const userRouter = require('../routes/user');
 const ticketRouter = require('../routes/ticket');
+const ticketLogRouter = require('../routes/ticket');
+
 const { errorMiddleware } = require('../middlewares/errorMiddleware');
 
 const app = express();
@@ -18,6 +20,8 @@ app.use(cors());
 
 app.use('/users', userRouter);
 app.use('/tickets', ticketRouter);
+app.use('/ticketLogs', ticketLogRouter);
+
 
 app.get('/', (req, res) => {
     res.send('Hello world');
