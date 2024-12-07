@@ -1,4 +1,3 @@
-
 // For importing the TicketLog model from the database models:
 const TicketLogModel = require('../database/models/ticketLog');
 
@@ -13,7 +12,6 @@ module.exports.create = async (req, res, next) => {
         next(error);
     }
 };
-
 
 // Responsible for retrieving all ticket logs by ticket ID and returning them:
 module.exports.getAllByTicketId = async (req, res, next) => {
