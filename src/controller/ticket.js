@@ -15,7 +15,8 @@ module.exports.create = async (req, res, next) => {
 // Responsible for fetching all tickets
 module.exports.getAll = async (req, res, next) => {
     try {
-        const list = await TicketModel.find();
+        const list = await TicketModel.find().populate('customerId', 'username')
+        .sort({ createdAt: -1 });
         return res.status(200).json(list);
     } catch (error) {
         console.log(error);
@@ -27,7 +28,7 @@ module.exports.getAll = async (req, res, next) => {
 module.exports.getByID = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const ticket = await TicketModel.findById(id);
+        const ticket = await TicketModel.findById(id).populate('customerId', 'username');
         return res.status(200).json(ticket);
     } catch (error) {
         console.log(error);
@@ -80,7 +81,7 @@ module.exports.delete = async (req, res, next) => {
 module.exports.getTicketsByCustomerId = async (req, res, next) => {
     try {
       const { id } = req.params;
-      const tickets = await TicketModel.find({ customerId: id });
+      const tickets = await TicketModel.find({ customerId: id }).sort({ createdAt: -1 });
       return res.status(200).json(tickets);
     } catch (error) {
         console.log(error);

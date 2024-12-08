@@ -7,7 +7,7 @@ const { validateToken } = require('../middlewares/validateToken');
 
 router.get('/user/:id', validateToken, ticketController.getTicketsByCustomerId);
 router.get('/:id', validateToken, ticketController.getByID);
-router.put('/:id', validateToken, ticketController.update);
+router.patch('/:id', validateToken, ticketController.update);
 router.delete('/:id', validateToken, ticketController.delete);
 router.post('/', validateToken, ticketController.create);
 router.get('/', validateToken, ticketController.getAll);
