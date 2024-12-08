@@ -17,8 +17,9 @@ module.exports.create = async (req, res, next) => {
 module.exports.getAllByTicketId = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const ticket = await TicketLogModel.find({ ticketId: id });
-        return res.status(200).json(ticket);
+        const ticketLogs = await TicketLogModel.find({ ticketId: id }).sort({ createdAt: -1 })
+        .populate('customerId', 'username');
+        return res.status(200).json(ticketLogs);
     } catch (error) {
         console.log(error);
         next(error);
